@@ -1,4 +1,4 @@
-export interface documento{
-    getDocumento(): documento
+export interface Documento{
+    getDocumento(): Documento
     getValue(): string
 }
