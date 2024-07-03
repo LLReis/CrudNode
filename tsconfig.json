@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+
+    "target": "ES2016",     
+
+    "module": "CommonJS",   
+
+    "outDir": "./",
+
+    "esModuleInterop": true,
+
+    "strict": true
+
+     },
+
+     "include": ["src"]
+}
