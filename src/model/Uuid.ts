@@ -5,11 +5,15 @@ export class Uuid{
 
     constructor(value: string){
         if(!validadeUuid(value)){
-            throw new Error(`Valor não é um uuid valido ${value}`)
+            throw new Error(`${value} não é um uuid valido `)
         }
         this.value = value
     }
     static randomGenerator(): Uuid{
         return new Uuid(uuidV4())
+    }
+
+    public getValue(){
+        return this.value
     }
 }

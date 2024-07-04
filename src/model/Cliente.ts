@@ -8,13 +8,25 @@ export class Cliente {
     private documento: Documento;
 
     constructor(nome: string, documento: Documento, id?: string){
-        this.nome = nome
-        this.documento = documento
-        this.id = id ? new Uuid(id) : Uuid.randomGenerator()
+        this.nome = nome;
+        this.documento = documento;
+        this.id = id ? new Uuid(id) : Uuid.randomGenerator();
     }
 
     static create (nome: string, documento: string, id?: string): Cliente {
-        const documentoInstanciado = DocumentoFactory.create(documento) 
-        return new Cliente(nome, documentoInstanciado, id)
+        const documentoInstanciado = DocumentoFactory.create(documento);
+        return new Cliente(nome, documentoInstanciado, id);
+    }
+
+    public getId(): Uuid {
+        return this.id;
+    }
+
+    public getNome(): string {
+        return this.nome;
+    }
+
+    public getDocumento(): Documento{
+        return this.documento;
     }
 }

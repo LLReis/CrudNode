@@ -7,7 +7,7 @@ export class Cnpj implements Documento{
 
     constructor(value: string){
         if(!Cnpj.isValid(value)){
-            throw new Error ("Valor do Cpf não é valido")
+            throw new Error ("Valor do Cnpj não é valido")
         }
         this.value = value
     }
