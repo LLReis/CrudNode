@@ -41,6 +41,6 @@ async save(cliente: Cliente): Promise<void> {
        if(!cliente){
             throw new Error(`O cliente do id ${id.getValue()} não foi encontrado`) 
        }
-       return Cliente.create(cliente['name'], cliente['documento'], cliente['id'])
+       return Cliente.create(cliente[0]['name'], cliente[0]['documento'], cliente[0]['id'])
     }
 }
