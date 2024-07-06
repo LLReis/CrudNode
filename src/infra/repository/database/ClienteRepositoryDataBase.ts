@@ -3,6 +3,7 @@ import { Cliente } from "../../../model/Cliente";
 import { ClienteRepository } from "../../../model/repositoy/ClienteRepository";
 import { develop } from "./KnexConfig";
 import { Uuid } from "../../../model/Uuid";
+import { AlterarClienteDTO } from "../../../controller/dtos/AlterarClienteDTO";
 
 
 export class ClienteRepositoryDataBase implements ClienteRepository {
@@ -43,4 +44,18 @@ async save(cliente: Cliente): Promise<void> {
        }
        return Cliente.create(cliente[0]['name'], cliente[0]['documento'], cliente[0]['id'])
     }
+
+    async delete(id: Uuid): Promise<void> {
+        await this.connection('cliente').where({'id': id.getValue()}).delete();
+    }
+
+    async update(id: Uuid, clienteDTO: AlterarClienteDTO): Promise<Cliente> {
+        await this.connection('cliente').where({'id': id.getValue()}).update({
+            'nome': clienteDTO.nome,
+            'documento': clienteDTO.documento
+        });
+        return await this.getById(id);
+    }
+
+
 }

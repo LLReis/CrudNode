@@ -4,7 +4,7 @@ import { Uuid } from "../../../model/Uuid";
 
 
 export class ClienteRepositoryNaMemoria implements ClienteRepository {
-    
+
     getById(id: Uuid): Promise<Cliente> {
         throw new Error("Method not implemented.");
     }
@@ -18,6 +18,14 @@ export class ClienteRepositoryNaMemoria implements ClienteRepository {
 
     async getAll(): Promise<Cliente[]> {
         return this.colecaoDeClientes
+    }
+
+    delete(id: Uuid): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
+
+    update(id: Uuid): Promise<Cliente> {
+        throw new Error("Method not implemented.");
     }
 
 } 
